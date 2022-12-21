@@ -19,10 +19,12 @@ object DayThree extends App{
     if(toDetermine>=97) toDetermine-96 else toDetermine-65+27
   }
 
-  // atm y a tj qu'un élément dans le return de compareRuckSacks donc autant ne garder qu'un Char
+  // Always only 1 char is returned by compareRuckSacks -> keep only the first char
   val res = rucksacksPockets.map(tuple => compareRuckSacks(tuple)(0))
+  // if lowercase -> goes from 1 to 26 else -> goes from 27 to 52
   val valueRes = res.map(item => if(item>=97) item-96 else item-65+27)
 
+  // Part Two
   val rucksacksGroup = mList.grouped(3).toList
   val resBadges = rucksacksGroup.map(tripleList => findMostPresentLetter(tripleList))
   println(valueRes.sum)

@@ -7,6 +7,7 @@ object DayTwo extends App {
   val buffer = Source.fromFile(filename)
   val mList = buffer.getLines.toList
   val mListSeparateMove = mList.map(elements => elements.split(" ").toList)
+  // Part two
   val valuedData = mListSeparateMove.map(lists => lists match {
     case List("A", "X") => 3+0 // 3 = scissors 0 = lose(0)
     case List("A", "Y") => 1+3 // 1 = rock Y = draw (3)
